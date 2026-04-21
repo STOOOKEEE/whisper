@@ -80,7 +80,7 @@ class WhisperManager {
         print("📦 Chargement du modèle Whisper...")
         
         self.whisper = Whisper(fromFileURL: modelURL)
-        var params = WhisperParams()
+        let params = WhisperParams()
         params.translate = true // Task="translate"
         params.language = .french // Input language
         params.print_special = false
@@ -246,11 +246,11 @@ let runLoopSource = CFMachPortCreateRunLoopSource(kCFAllocatorDefault, eventTap,
 CFRunLoopAddSource(CFRunLoopGetCurrent(), runLoopSource, .commonModes)
 CGEvent.tapEnable(tap: eventTap, enable: true)
 
-print("="*60)
+print(String(repeating: "=", count: 60))
 print("✨ SUPERWHISPER NATIF EST PRÊT ! ✨")
 print("👉 Raccourci: 'Option + Espace' pour DÉMARRER l'enregistrement.")
 print("👉 Raccourci: 'Option + Espace' à nouveau pour ARRÊTER et traduire/écrire.")
-print("="*60)
+print(String(repeating: "=", count: 60))
 
 // Request microphone access
 AVCaptureDevice.requestAccess(for: .audio) { granted in
